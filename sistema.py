@@ -1,5 +1,6 @@
 from .test import cab
 from .test import menu
+from .test import linha
 
-cab('testando 1 2 3')
-menu(['OP1', 'OP2', 'OP3'])
+cab('SISTEMA DE ARQUIVOS')
+menu(['Criar arquivos', 'Cadastrar pessoas', 'Lista de pessoas'])

@@ -14,4 +14,4 @@ def menu(lista):
   for item in lista:
     print(f'{c} - {item}')
     c += 1
-  print(lista)
+  print(linha())
