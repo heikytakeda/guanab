@@ -5,6 +5,8 @@ from time import sleep
 from .arquivo import arquivoExiste
 from .arquivo import CriarArquivo
 from .arquivo import lerArquivo
+from .test import leiaint
+from .arquivo import cadastrar
 
 arq = 'cursoemvideo.txt'
 
@@ -17,7 +19,10 @@ while True:
   if resposta == 1:
     lerArquivo(arq)
   elif resposta == 2:
-    cab('opc 2')
+    cab('NOVO CADASTRO')
+    nome = str(input('nome: '))
+    idade = leiaint('idade: ')
+    cadastrar(arq, nome, idade)
   elif resposta == 3:
     cab('Saindo do sistema...ate logo!')
     break
