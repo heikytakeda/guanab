@@ -1,31 +1,33 @@
-from .test import cab
-from .test import menu
-from .test import linha
-from time import sleep
-from .arquivo import arquivoExiste
-from .arquivo import CriarArquivo
-from .arquivo import lerArquivo
-from .test import leiaint
-from .arquivo import cadastrar
+def leiaint(msg):
+  while True:
+    try:
+      n = int(input(msg))
+    except (ValueError, TypeError):
+      print('\033[31mERRO: por favor, digite um numero valido. \033[m')
+      continue
+    except (KeyboardInterrupt):
+      print('\n\033[31mUsuario preferiu nao digitar esse numero.\033[m')
+      return 0
+    else:
+      return n
 
-arq = 'cursoemvideo.txt'
 
-if not arquivoExiste(arq):
-  CriarArquivo(arq)
+def linha(tam = 42):
+  return '-' * tam
 
-cab('SISTEMA DE ARQUIVOS')
-while True:
-  resposta = menu(['Ver pessoas cadastradas', 'Cadastrar nova pessoa', 'Sair do sistema'])
-  if resposta == 1:
-    lerArquivo(arq)
-  elif resposta == 2:
-    cab('NOVO CADASTRO')
-    nome = str(input('nome: '))
-    idade = leiaint('idade: ')
-    cadastrar(arq, nome, idade)
-  elif resposta == 3:
-    cab('Saindo do sistema...ate logo!')
-    break
-  else:
-    print('\033[31mERRO! Digite uma opcao valida.\033[m')
-  sleep(1)
+
+def cab(txt): 
+  print(linha())
+  print(txt.center(42))
+  print(linha())
+
+
+def menu(lista):
+  cab('menu principal')
+  c = 1
+  for item in lista:
+    print(f'\033[33m{c}\033[m - \033[34m{item}\033[m')
+    c += 1
+  print(linha())
+  opc = leiaint('Sua opcao: ')
+  return opc

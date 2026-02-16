@@ -1,5 +1,4 @@
-from guanab.test import cab
-
+from sistema import *
 
 def arquivoExiste(nome):
   try:
